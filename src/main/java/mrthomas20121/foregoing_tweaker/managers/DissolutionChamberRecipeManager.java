@@ -9,7 +9,6 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.buuz135.industrial.module.ModuleCore;
-import com.buuz135.industrial.recipe.CrusherRecipe;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
 import mrthomas20121.foregoing_tweaker.actions.ActionRemoveByOutputFluid;
 import mrthomas20121.foregoing_tweaker.util.IIngredientUtil;
@@ -53,12 +52,12 @@ public class DissolutionChamberRecipeManager implements IRecipeManager<Dissoluti
 
     @ZenCodeType.Method
     public void removeRecipeByInput(IFluidStack output) {
-        CraftTweakerAPI.apply(new ActionRemoveByOutputFluid(this, output));
+        CraftTweakerAPI.apply(new ActionRemoveByOutputFluid(this, (MCFluidStack) output));
     }
 
     @ZenCodeType.Method
     public void removeRecipeByOutput(IFluidStack output) {
-        CraftTweakerAPI.apply(new ActionRemoveByOutputFluid(this, output));
+        CraftTweakerAPI.apply(new ActionRemoveByOutputFluid(this, (MCFluidStack) output));
     }
 
     @SuppressWarnings("unchecked")

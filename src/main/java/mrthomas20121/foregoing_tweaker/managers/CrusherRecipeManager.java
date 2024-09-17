@@ -22,6 +22,7 @@ public class CrusherRecipeManager implements IRecipeManager<CrusherRecipe> {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, recipe));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public RecipeType<CrusherRecipe> getRecipeType() {
         return (RecipeType<CrusherRecipe>) ModuleCore.CRUSHER_TYPE.get();

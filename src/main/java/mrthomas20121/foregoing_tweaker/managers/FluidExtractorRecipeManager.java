@@ -7,6 +7,7 @@ import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
+import com.blamejared.crafttweaker.api.zencode.CraftTweakerGlobals;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.recipe.CrusherRecipe;
 import com.buuz135.industrial.recipe.FluidExtractorRecipe;
@@ -29,7 +30,7 @@ public class FluidExtractorRecipeManager implements IRecipeManager<FluidExtracto
             CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new FluidExtractorRecipe(new ResourceLocation("crafttweaker", name), list, internal_block.getBlock(), breakChance, output.getInternal(), defaultRecipe)));
         }
         else {
-            CraftTweakerAPI.LOGGER.info(output.getRegistryName().toString()+" is not a valid block!");
+            CraftTweakerGlobals.println(output.getRegistryName().toString()+" is not a valid block!");
         }
     }
 
@@ -38,6 +39,7 @@ public class FluidExtractorRecipeManager implements IRecipeManager<FluidExtracto
         this.addRecipe(name, input, block, breakChance, output, false);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public RecipeType<FluidExtractorRecipe> getRecipeType() {
         return (RecipeType<FluidExtractorRecipe>) ModuleCore.FLUID_EXTRACTOR_TYPE.get();

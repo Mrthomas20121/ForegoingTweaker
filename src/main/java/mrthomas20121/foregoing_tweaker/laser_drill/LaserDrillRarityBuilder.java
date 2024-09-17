@@ -3,6 +3,7 @@ package mrthomas20121.foregoing_tweaker.laser_drill;
 import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.buuz135.industrial.recipe.LaserDrillRarity;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -72,6 +73,6 @@ public class LaserDrillRarityBuilder {
     }
 
     private ResourceKey<Biome> getBiome(String name) {
-        return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(name));
+        return ResourceKey.create(Registries.BIOME, new ResourceLocation(name));
     }
 }

@@ -30,6 +30,7 @@ public class StoneworkGenerateRecipeManager implements IRecipeManager<StoneWorkG
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, recipe, ""));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public RecipeType<StoneWorkGenerateRecipe> getRecipeType() {
         return (RecipeType<StoneWorkGenerateRecipe>) ModuleCore.STONEWORK_GENERATE_TYPE.get();

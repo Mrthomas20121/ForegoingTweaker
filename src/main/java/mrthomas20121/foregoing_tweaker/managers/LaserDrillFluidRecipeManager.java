@@ -31,9 +31,10 @@ public class LaserDrillFluidRecipeManager implements IRecipeManager<LaserDrillFl
     }
 
     private CompoundTag createNBT(IFluidStack fluidStack) {
-        return LaserDrillFluidRecipe.createNBT(ForgeRegistries.FLUIDS.getKey(fluidStack.getFluid()).toString(), fluidStack.getAmount());
+        return LaserDrillFluidRecipe.createNBT(ForgeRegistries.FLUIDS.getKey(fluidStack.getFluid()).toString(), (int) fluidStack.getAmount());
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public RecipeType<LaserDrillFluidRecipe> getRecipeType() {
         return (RecipeType<LaserDrillFluidRecipe>) ModuleCore.LASER_DRILL_FLUID_TYPE.get();

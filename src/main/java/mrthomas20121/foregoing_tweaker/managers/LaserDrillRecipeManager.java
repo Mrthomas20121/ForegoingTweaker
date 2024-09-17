@@ -26,6 +26,7 @@ public class LaserDrillRecipeManager implements IRecipeManager<LaserDrillOreReci
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new LaserDrillOreRecipe(name, output.asVanillaIngredient(), lens.asVanillaIngredient(), null, laserDrillRarities), ""));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public RecipeType<LaserDrillOreRecipe> getRecipeType() {
         return (RecipeType<LaserDrillOreRecipe>) ModuleCore.LASER_DRILL_TYPE.get();
