@@ -37,6 +37,16 @@ public class DissolutionChamberRecipeManager implements IRecipeManager<Dissoluti
     }
 
     @ZenCodeType.Method
+    public void addRecipe(String name, IIngredient[] inputs, IFluidStack inputFluid, int processingTime, IItemStack output) {
+        addRecipe(name, inputs, inputFluid, processingTime, output, new MCFluidStack(FluidStack.EMPTY));
+    }
+
+    @ZenCodeType.Method
+    public void addRecipe(String name, IIngredient[] inputs, int processingTime, IItemStack output, IFluidStack outputFluid) {
+        addRecipe(name, inputs, new MCFluidStack(FluidStack.EMPTY), processingTime, output, outputFluid);
+    }
+
+    @ZenCodeType.Method
     public void addRecipe(String name, IItemStack[] inputs, int processingTime, IItemStack output, IFluidStack outputFluid) {
         addRecipe(name, inputs, new MCFluidStack(FluidStack.EMPTY), processingTime, output, outputFluid);
     }
@@ -51,6 +61,7 @@ public class DissolutionChamberRecipeManager implements IRecipeManager<Dissoluti
         CraftTweakerAPI.apply(new ActionRemoveByOutputFluid(this, output));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public RecipeType<DissolutionChamberRecipe> getRecipeType() {
         return (RecipeType<DissolutionChamberRecipe>) ModuleCore.DISSOLUTION_TYPE.get();
